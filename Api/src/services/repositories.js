@@ -22,7 +22,7 @@ const transform = (repositories) => {
 		image: el['owner']['avatar_url'],
 	}));
 
-	return result;
+	return { data: result, count: result.length };
 };
 
 module.exports = { getRepositories };
