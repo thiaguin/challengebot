@@ -16,12 +16,22 @@ const getRepositories = async () => {
 
 const transform = (repositories) => {
 	const elements = repositories.slice(0, 5);
-	const result = elements.map((el) => ({
+	const keys = ['first', 'seconde', 'third', 'fourth', 'fiveth']
+	const transformed = elements.map((el) => ({
 		name: el['full_name'],
 		description: el['description'],
 		image: el['owner']['avatar_url'],
 	}));
 
+	const result = {}
+
+	for (let i = 0; i < 5; i++) {
+		const key = keys[i]
+		const value = transformed[i]
+
+		result[key] = value
+	}
+	
 	return { data: result, count: result.length };
 };
 
